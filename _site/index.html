@@ -11,7 +11,6 @@
 	Cufon.replace('h1', {fontFamily: 'Comfortaa'});
 	Cufon.replace('p.c_soon strong', {fontFamily: 'Comfortaa'});
 </script>
-
 </head>
 <body>
 <div class="content_wrapper">
@@ -21,12 +20,17 @@
 			</div>
 			<div class="logo_content">
 				<h1><strong>Plummet</strong>2</h1>
-				<h3>This game is so damn addictive. <strong>You've been WARNED!</strong></h3>
-				<p>Simply tap screen to control couple paddles, make them collide with matching black and white colors.
-Wrong collision makes you fail your progress.
-The board will be rotated after each 5 points you get, more challenging gameplay then?!
-Now, show us your high score by sharing the game. How many can you get?</p>
-				<a href="#" class="get_notified"><strong>Get Notified</strong> on the day of launch!</a>
+				<h3><strong>New game is coming soon!</strong></h3>
+				<p>Tap on the screen to control couple paddles, make them collide with matching black and white colors.
+Wrong collision makes you fail your progress...</p>
+				<a href="#" class="get_notified">
+				<div id="clockdiv">
+						<strong><span class="days"></span></strong> days
+						<strong><span class="hours"></span></strong> hours
+					  	<strong><span class="minutes"></span></strong> minutes
+					 	<strong><span class="seconds"></span></strong> seconds left
+					</div>
+					</a>
 			</div>
 		</div>
 	</div>
@@ -40,9 +44,9 @@ Now, show us your high score by sharing the game. How many can you get?</p>
 				</div>
 				
 				<ul class="social">
-					<li><a href="#" class="twitter">twitter</a></li>
-					<li><a href="#" class="facebook">facebook</a></li>
-					<li><a href="#" class="email">email</a></li>
+					<li><a href="https://twitter.com/onetapstudio" class="twitter">twitter</a></li>
+					<li><a href="https://www.facebook.com/onetapstudio" class="facebook">facebook</a></li>
+					<li><a href="mailto:onetapstudiovn@gmail.com" class="email">email</a></li>
 				</ul>
 				
 				<div class="copyright"><p>Copyright 2016. <br/> All Rights Reserved. <br/> <span><strong>OneTap</strong>Studio</span></p></div>
@@ -51,4 +55,51 @@ Now, show us your high score by sharing the game. How many can you get?</p>
 	</div>
 </div>
 </body>
+
+
+
+<script type="text/javascript">
+function getTimeRemaining(endtime) {
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var seconds = Math.floor((t / 1000) % 60);
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    'total': t,
+    'days': days,
+    'hours': hours,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  var clock = document.getElementById(id);
+  var daysSpan = clock.querySelector('.days');
+  var hoursSpan = clock.querySelector('.hours');
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+
+    daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+  }
+
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+
+var deadline = new Date(2016,3,5,0,0,00,0);
+initializeClock('clockdiv', deadline);
+</script>
+
 </html>

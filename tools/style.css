@@ -209,3 +209,10 @@ color: #666666;
 font-size: 12px;
 color: #ee5627;
 }
+
+
+#clockdiv{
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+}
