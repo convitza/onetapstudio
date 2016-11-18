@@ -12,7 +12,7 @@ twitter_username:   HeiswayiNrird
 github_username:    heiswayi # GitHub username
 
 # Site Settings
-baseurl:            "1tapstudio.com" # Base URL must end WITHOUT a slash, default: ""
+baseurl:            "" # Base URL must end WITHOUT a slash, default: ""
 permalink:          /notes/:title # Post permalink
 timezone:           ICT # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
